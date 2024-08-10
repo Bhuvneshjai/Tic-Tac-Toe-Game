@@ -1,4 +1,3 @@
-# game/views.py
 from django.shortcuts import render, redirect
 from .game_logic import check_winner, check_draw
 

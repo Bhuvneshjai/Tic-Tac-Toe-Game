@@ -1,4 +1,3 @@
-# tic_tac_toe/game/models.py
 from django.db import models
 
 class Game(models.Model):
