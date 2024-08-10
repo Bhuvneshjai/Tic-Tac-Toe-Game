@@ -21,6 +21,9 @@ This is a simple Tic-Tac-Toe game built using Django and Bootstrap. The game fea
       * `python manage.py runserver`
   #### Access the game at http://127.0.0.1:8000/ in your web browser.
 
+  ## Game Page
+  ![image](https://github.com/user-attachments/assets/89f61ec8-6f5c-4653-bf39-85a27a7110ba)
+
   ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
