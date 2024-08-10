@@ -1,0 +1,44 @@
+<!-- game/templates/game/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Tic-Tac-Toe</h1>
+        <div class="text-center mb-4">
+            {% if winner %}
+                <p class="winner">Player {{ winner }} wins!</p>
+            {% elif draw %}
+                <p class="draw">It's a draw!</p>
+            {% else %}
+                <p class="font-size-5">Player {{ turn }}'s turn</p>
+            {% endif %}
+        </div>
+        <div class="board">
+            {% for row in board %}
+                {% for col in row %}
+                    <form method="post" action="{% url 'index' %}" class="p-0 m-0">
+                        {% csrf_token %}
+                        <input type="hidden" name="row" value="{{ forloop.parentloop.counter0 }}">
+                        <input type="hidden" name="col" value="{{ forloop.counter0 }}">
+                        <button type="submit" class="btn cell">{{ col }}</button>
+                    </form>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <form method="post" action="{% url 'index' %}" class="p-0 m-0">
+                {% csrf_token %}
+                <button type="submit" name="reset" id="reset" class="btn btn-danger reset-btn">Reset Game</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
